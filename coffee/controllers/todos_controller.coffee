@@ -14,3 +14,14 @@ Todos.TodosController = Ember.ArrayController.extend
       @set('newTitle', '')
 
       todo.save()
+
+  remaining:
+    Ember.computed ->
+      @filterBy('isCompleted', false).get('length')
+    .property('@each.isCompleted')
+
+  inflection:
+    Ember.computed ->
+      remaining = @get('remaining')
+      if remaining == 1 then 'item' else 'items'
+    .property('remaining')
