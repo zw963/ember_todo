@@ -26,7 +26,7 @@
               {{else}}
               {{input type="checkbox" checked=isComplted class="toggle"}}
               <label {{action "editTodo" on="doubleClick"}}>{{title}}</label>
-              <button class="destroy"></button>
+              <button {{action "removeTodo" }}class="destroy"></button>
               {{/if}}
             </li>
             {{/each}}
