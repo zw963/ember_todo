@@ -14,6 +14,21 @@ Todos.TodosController = Ember.ArrayController.extend
       @set('newTitle', '')
 
       todo.save()
+    clearCompleted: ->
+      completed = @filterBy('isCompleted', true)
+      # invoke 是 EmberArray API 的一部分, 相当于 Rails 中的 try.
+      completed.invoke('deleteRecord')
+      completed.invoke('save')
+
+  hasCompleted: ->
+    Ember.computed ->
+      @get('completed') > 0
+    .property('completed')
+
+  completed:
+    Ember.computed ->
+      @filterBy('isCompleted', true).get('length')
+    .property('@each.isCompleted')
 
   remaining:
     Ember.computed ->
