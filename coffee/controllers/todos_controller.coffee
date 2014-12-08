@@ -14,7 +14,6 @@ Todos.TodosController = Ember.ArrayController.extend
       @set('newTitle', '')
 
       todo.save()
-      return
 
   remaining:
     Ember.computed ->

@@ -1,4 +1,2 @@
-window.Todos = Ember.Application.create
-  LOG_ACTIVE_GENERATION: true
-
-Todos.ApplicationAdapter = DS.FixtureAdapter.extend();
+window.Todos = Ember.Application.create()
+Todos.ApplicationAdapter = DS.FixtureAdapter.extend()

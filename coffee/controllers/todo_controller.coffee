@@ -2,7 +2,6 @@ Todos.TodoController = Ember.ObjectController.extend
   actions:
     editTodo: ->
       @set('isEditing', true)
-      return
 
     acceptChanges: ->
       @set('isEditing', false)
