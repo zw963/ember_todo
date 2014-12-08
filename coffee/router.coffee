@@ -1,6 +1,6 @@
 Todos.Router.map ->
   @resource 'todos', path: '/', ->
-    ### go here later ###
+    @route('active')
   return
 
 Todos.TodosRoute = Ember.Route.extend
@@ -10,3 +10,11 @@ Todos.TodosRoute = Ember.Route.extend
 Todos.TodosIndexRoute = Ember.Route.extend
   model: ->
     @modelFor('todos')
+
+Todos.TodosActiveRoute = Ember.Route.extend
+  model: ->
+    @store.filter 'todo', (todo) ->
+      !todo.get('isCompleted')
+  renderTemplate: (controller) ->
+    @render 'todos/index', controller: controller
+    return
